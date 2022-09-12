@@ -27,4 +27,15 @@ RSpec.describe HomeHelper do
       end
     end
   end
+  describe "#create" do
+    it 'created' do
+      expect {helper.create(name: "Ravi")}.to change{Hello.count}.by(1)
+    end
+    context "When name is invalid" do
+      it 'Does not create the name' do
+        expect(helper.create).to be false
+        expect {helper.create}.to change{Hello.count}.by(0)
+      end
+    end
+  end
 end

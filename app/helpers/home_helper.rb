@@ -2,9 +2,11 @@ module HomeHelper
   def index
     @hello  = "Harry"
   end
-  def new
+  def create(name1="")
+    @hello = Hello.new(name: name1)
+    @hello.save
   end
-  def create1(name = " ")
+  def create1(name = "")
     @hello = Hello.new(name: name)
     @hello.save
   end
