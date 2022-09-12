@@ -14,4 +14,8 @@ module HomeHelper
     @hello = Hello.find(id)
     @hello.update(name: name)
   end
+  def destroy(id = 1)
+    @hello  = Hello.find(id)
+    @hello.destroy
+  end
 end

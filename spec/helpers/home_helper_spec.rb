@@ -39,9 +39,6 @@ RSpec.describe HomeHelper do
     end
   end
   describe "#update" do
-    let(:hello){
-      Hello.create(name: "Hello")
-    }
     it 'update' do
 
       hell = Hello.create!(name: "valid_name")
@@ -56,4 +53,8 @@ RSpec.describe HomeHelper do
       end
     end
   end
+  describe "#destroy" do
+    
+  end
+  
 end
