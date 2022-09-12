@@ -11,9 +11,20 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe HomeHelper do
-  describe "index" do
+  describe "#index" do
     it 'Checking' do
       expect(helper.index).to eq("Harry")
+    end
+  end
+  describe "#create1" do
+    it 'Complete' do
+      expect {helper.create1("Ravi")}.to change{Hello.count}.by(1)
+    end
+    context "When name is invalid" do
+      it 'Does not create the name' do
+        expect(helper.create1("")).to be false
+        expect {helper.create1("")}.to change{Hello.count}.by(0)
+      end
     end
   end
 end
