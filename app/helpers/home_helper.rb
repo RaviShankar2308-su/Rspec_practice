@@ -10,4 +10,8 @@ module HomeHelper
     @hello = Hello.new(name: name)
     @hello.save
   end
+  def update(id = 1,name= "")
+    @hello = Hello.find(id)
+    @hello.update(name: name)
+  end
 end

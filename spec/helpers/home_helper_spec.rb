@@ -38,4 +38,22 @@ RSpec.describe HomeHelper do
       end
     end
   end
+  describe "#update" do
+    let(:hello){
+      Hello.create(name: "Hello")
+    }
+    it 'update' do
+
+      hell = Hello.create!(name: "valid_name")
+      id = hell.id
+      expect(helper.update(id,"Ravi")).to be true
+    end
+    context "When name is not update" do
+      it 'Does not update name' do
+      hell = Hello.create!(name: "valid_name")
+      id = hell.id
+      expect(helper.update).to be false
+      end
+    end
+  end
 end
