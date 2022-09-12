@@ -40,7 +40,6 @@ RSpec.describe HomeHelper do
   end
   describe "#update" do
     it 'update' do
-
       hell = Hello.create!(name: "valid_name")
       id = hell.id
       expect(helper.update(id,"Ravi")).to be true
@@ -50,6 +49,28 @@ RSpec.describe HomeHelper do
       hell = Hello.create!(name: "valid_name")
       id = hell.id
       expect(helper.update).to be false
+      end
+    end
+  end
+  describe "#destroy" do
+    it 'destroy' do
+      des = Hello.create!(name: "valid_name")
+      id = des.id
+      expect{helper.destroy(id)}.to change{Hello.count}. by(-1)
+    end
+    context "when name is not destroy" do
+      it 'Does not destroy name' do
+        des = Hello.create!(name: "valid_name")
+        id = des.id
+      expect {helper.destroy(id)}.to change{Hello.count}
+      end
+    end
+  end
+  describe "#show" do
+    it 'show' do
+      id = Hello.count
+      id.times do |i|
+        expect(helper.show(i)).to eq (Hello.find(i))
       end
     end
   end
