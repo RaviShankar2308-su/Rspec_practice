@@ -53,8 +53,4 @@ RSpec.describe HomeHelper do
       end
     end
   end
-  describe "#destroy" do
-    
-  end
-  
 end
